@@ -34,7 +34,7 @@ const Drink = ({ imgUrl, name, price }) => {
         className="h-12 w-12 object-contain overflow-clip rounded-lg"
       />
       <a className="flex flex-col gap-2 justify-start items-start ml-2">
-        <h3 className="w-fit h-5 font-bold text-xs text-start pb-2 overflow-hidden text-ellipsis">
+        <h3 className="w-fit h-4 font-bold text-xs text-start pb-2 overflow-hidden text-ellipsis">
           {name}
         </h3>
         <span className="text-xs bottom-0 font-normal">
