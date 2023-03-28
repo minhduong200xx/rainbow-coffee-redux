@@ -148,7 +148,7 @@ const DrinksList = () => {
       </div>
       <div
         className={`w-[500px] h-[90%] bg-slate-300 absolute top-16 rounded-2xl mx-auto py-2 ${
-          nc || (!tableData.empty && tableData.total !== 0) ? "" : "hidden"
+          !tableData.empty && tableData.total !== 0 ? "" : "hidden"
         }`}
       >
         <button
