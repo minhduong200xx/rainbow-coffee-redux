@@ -1,12 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-const initialState = Array(25)
+var initialState = [];
+const initState = Array(25)
   .fill()
-  .map((item, index) => ({ id: index + 1, drink: [], total: 0, empty: true }));
+  .map((item, index) => ({
+    id: index + 1,
+    drink: [],
+    total: 0,
+    empty: true,
+  }));
+const storage = JSON.parse(localStorage.getItem("tables"));
+storage ? (initialState = storage) : (initialState = initState);
 const tableSlice = createSlice({
   name: "tables",
   initialState,
   reducers: {
+    getDataFromStorage(state, action) {
+      state = action.payload;
+    },
     clearData(state, action) {
       state.map((item) => {
         if (item.id === action.payload) {

@@ -21,48 +21,43 @@ const BillItems = ({ name, quantity, price, id, hide }) => {
     );
   };
   return (
-    <div>
-      <tr className="flex mx-auto w-[90%] h-6 py-2">
-        <td className="w-1/2 overflow-hidden h-6 pl-2">{name}</td>
-        <td className="w-1/6 justify-center flex ">
+    <tr className="flex mx-auto w-[90%] h-6 py-2">
+      <td className="w-1/2 overflow-hidden h-6 pl-2">{name}</td>
+      <td className="w-1/6 justify-center flex ">
+        <button
+          className={`rounded font-bold w-5 h-5 border border-solid border-black flex items-center justify-center hover:bg-red-500 hover:text-white text-red-500 ${
+            hide ? "hidden" : ""
+          }`}
+          onClick={handleDecrease}
+        >
+          -
+        </button>
+        <a className="w-6 px-2 pb-1 bg-inherit">{quantity}</a>
+        <button
+          className={`rounded font-bold w-5 h-5 border border-solid border-black flex items-center justify-center hover:bg-green-600 text-green-500 hover:text-white ${
+            hide ? "hidden" : ""
+          }`}
+          onClick={handleIncrease}
+        >
+          +
+        </button>
+      </td>
+      <td className="w-1/5 text-center">
+        {price}.000 <sup className="underline">đ</sup>
+      </td>
+      {hide ? (
+        ""
+      ) : (
+        <td className="w-1/4 justify-center flex">
           <button
-            className={`rounded font-bold w-5 h-5 border border-solid border-black flex items-center justify-center hover:bg-red-500 hover:text-white text-red-500 ${
-              hide ? "hidden" : ""
-            }`}
-            onClick={handleDecrease}
+            className="text-center text-red-500 hover:underline font-medium"
+            onClick={handleDelete}
           >
-            -
-          </button>
-          <input
-            value={quantity}
-            className="w-6 flex text-center py-2 bg-inherit"
-          />
-          <button
-            className={`rounded font-bold w-5 h-5 border border-solid border-black flex items-center justify-center hover:bg-green-600 text-green-500 hover:text-white ${
-              hide ? "hidden" : ""
-            }`}
-            onClick={handleIncrease}
-          >
-            +
+            Xoá
           </button>
         </td>
-        <td className="w-1/5 text-center">
-          {price}.000 <sup className="underline">đ</sup>
-        </td>
-        {hide ? (
-          ""
-        ) : (
-          <td className="w-1/4 justify-center flex">
-            <button
-              className="text-center text-red-500 hover:underline font-medium"
-              onClick={handleDelete}
-            >
-              Xoá
-            </button>
-          </td>
-        )}
-      </tr>
-    </div>
+      )}
+    </tr>
   );
 };
 

@@ -7,6 +7,7 @@ import {
   selectSelector,
   showBillSelector,
   showListSelector,
+  tableSelector,
 } from "../../redux/selector";
 import Drink from "../Drink/Drink";
 
@@ -15,6 +16,7 @@ import BillItems from "./BillItems";
 import { categories, filterCategories } from "./data";
 
 const DrinksList = () => {
+  const table = useSelector(tableSelector);
   const tableData = useSelector(fetchData);
   const currentTable = useSelector(selectSelector);
   const bill = useSelector(showBillSelector);

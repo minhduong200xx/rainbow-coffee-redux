@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { tableSelector } from "../../redux/selector";
 import Table from "./Tables";
 
 const TableList = (show) => {
-  const tableData = useSelector(tableSelector);
+  var data = useSelector(tableSelector);
+  const tableData = data;
+
   return (
     <div className="w-fit mx-auto bg-emerald-500 h-fit py-10 px-10 my-4 rounded-2xl shadow-2xl">
       <h3 className="text-white text-2xl font-bold uppercase mx-auto w-fit py-2">

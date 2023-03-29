@@ -1,16 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  choiceTable,
-  setNotEmpty,
-  showBill,
-  showList,
-} from "../../redux/actions";
+import { choiceTable } from "../../redux/actions";
 import { tableSelector } from "../../redux/selector";
-import DrinksList from "../DrinkList/DrinksList";
 
 const Table = ({ id, status }) => {
   const dispatch = useDispatch();
+  const tableData = useSelector(tableSelector);
   const showTable = (e) => {
     dispatch(choiceTable(parseInt(e.target.value)));
   };

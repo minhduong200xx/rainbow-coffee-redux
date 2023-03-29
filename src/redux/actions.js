@@ -46,3 +46,9 @@ export const clearData = (id) => {
     payload: id,
   };
 };
+export const getDataFromStorage = (data) => {
+  return {
+    type: "tables/clearData",
+    payload: data,
+  };
+};
